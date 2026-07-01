@@ -259,22 +259,6 @@
     .stat .num { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--accent); }
     .stat .lbl { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.03em; text-transform: uppercase; }
 
-    /* Hero portrait */
-    .portrait {
-      position: relative; width: 100%; aspect-ratio: 4 / 5; border-radius: 14px;
-      overflow: hidden; border: 1px solid var(--border); background: var(--bg-2);
-    }
-    .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; }
-    .portrait-ph {
-      position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 14px; text-align: center;
-      color: var(--text-dim); font-size: 0.86rem; padding: 20px;
-      background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 26px 26px;
-    }
-    .portrait-ph svg { width: 48px; height: 48px; color: var(--accent); opacity: 0.75; }
-    .portrait-ph b { color: var(--accent); font-family: var(--font-mono); }
-
     /* ============ About ============ */
     .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: start; }
     .about-text p { color: var(--text-muted); margin-bottom: 18px; font-size: 1.05rem; }
@@ -494,9 +478,7 @@
           <h1>Resham <span class="grad">Pokhrel</span></h1>
           <div class="role"><span id="typed"></span><span class="cursor">▌</span></div>
           <p class="intro">
-            A software engineer with <strong style="color:var(--text)">4+ years</strong> building secure, scalable
-            web applications — now pursuing an MS in Cybersecurity. I blend clean engineering
-            with a security-first mindset to ship products people trust.
+            A software engineer with <strong style="color:var(--text)">5+ years</strong> building secure, scalable web applications — now pursuing an MS in Cybersecurity. I blend clean engineering with a security-first mindset to ship products people trust.
           </p>
 
           <div class="hero-cta">
@@ -517,7 +499,7 @@
             <a href="mailto:reshampokhrel57@gmail.com" aria-label="Email">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
             </a>
-            <a href="https://packagist.org/packages/resham/nova-dependent-filter" target="_blank" rel="noopener" aria-label="Packagist">
+            <a href="https://packagist.org/packages/resham" target="_blank" rel="noopener" aria-label="Packagist">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
             </a>
           </div>
@@ -525,18 +507,17 @@
 
         <div class="hero-right">
           <div class="hero-card reveal">
-            <div class="portrait">
-              <!-- Add your photo: drop a file named portrait.jpg next to index.html (or change the src below) -->
-              <div class="portrait-ph">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9"/><circle cx="9" cy="9" r="2"/><path d="m3 17 4-4a2 2 0 0 1 2.8 0l3.2 3.2"/><path d="M19 22v-6M22 19h-6"/></svg>
-                <span>Add your portrait<br><b>portrait.jpg</b></span>
-              </div>
-              <img src="portrait.jpg" alt="Resham Pokhrel" id="portraitImg"
-                   onerror="this.style.display='none';" />
-            </div>
+            <div class="card-dots"><span></span><span></span><span></span></div>
+            <div class="code-line"><span class="k">const</span> <span class="f">resham</span> = {
+  <span class="p">role</span>: <span class="s">"Software Engineer"</span>,
+  <span class="p">focus</span>: <span class="s">"Cybersecurity"</span>,
+  <span class="p">stack</span>: [<span class="s">"Python"</span>, <span class="s">"PHP"</span>, <span class="s">"TS"</span>],
+  <span class="p">based</span>: <span class="s">"Texas, USA 🇺🇸"</span>,
+  <span class="p">open</span>: <span class="k">true</span> <span class="p">// Full time</span>
+};</div>
             <div class="stats">
-              <div class="stat"><div class="num">4+</div><div class="lbl">Yrs Exp</div></div>
-              <div class="stat"><div class="num">45k+</div><div class="lbl">Pkg DLs</div></div>
+              <div class="stat"><div class="num">5+</div><div class="lbl">Yrs Exp</div></div>
+              <div class="stat"><div class="num">79k+</div><div class="lbl">Pkg DLs</div></div>
               <div class="stat"><div class="num">10k+</div><div class="lbl">Users</div></div>
             </div>
           </div>
@@ -553,7 +534,7 @@
           <div class="eyebrow">About me</div>
           <h2 class="section-title">Engineer by craft,<br>security-minded by discipline.</h2>
           <p>
-            I'm a <strong>Software Engineer</strong> with over four years of experience designing and
+            I'm a <strong>Software Engineer</strong> with over five years of experience designing and
             shipping enterprise web applications across <strong>Japan and Nepal</strong> — from RESTful
             APIs and microservices to responsive single-page apps serving <span class="highlight">10,000+ users</span>.
           </p>
@@ -565,8 +546,8 @@
           </p>
           <p>
             I've also contributed to open source — my <strong>Laravel Nova Dependent Filter</strong>
-            package has crossed <span class="highlight">45,000+ downloads</span>. I'm currently seeking a
-            <strong>summer 2026 software engineering internship</strong>.
+            package has crossed <span class="highlight">79,000+ downloads</span>. I'm currently seeking a
+            <strong>Fulltime Secure Software Engineering role</strong>.
           </p>
         </div>
 
@@ -578,7 +559,7 @@
             </li>
             <li>
               <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
-              <div><div class="t">Role</div><div class="v">Graduate Research Assistant</div></div>
+              <div><div class="t">Current Role</div><div class="v">Graduate Research Assistant</div></div>
             </li>
             <li>
               <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
@@ -586,11 +567,11 @@
             </li>
             <li>
               <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span>
-              <div><div class="t">Languages</div><div class="v">English · Nepali · Hindi · Japanese (basic)</div></div>
+              <div><div class="t">Languages</div><div class="v">English · Nepali</div></div>
             </li>
             <li>
               <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
-              <div><div class="t">Availability</div><div class="v">Open to Summer 2026 internships</div></div>
+              <div><div class="t">Availability</div><div class="v">Open to Fulltime role</div></div>
             </li>
           </ul>
         </div>
@@ -833,24 +814,6 @@
               <a href="https://packagist.org/packages/resham/nova-search-select" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                 Packagist
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="proj-card reveal">
-          <div class="proj-top">
-            <span class="proj-badge">Team Project</span>
-            <span class="proj-emoji">📱</span>
-          </div>
-          <div class="proj-body">
-            <h3>Qrosity</h3>
-            <p>A multi-user web application for dynamic QR code generation and management, featuring user authentication, role-based permissions, and built-in data analytics.</p>
-            <div class="proj-tags"><span>Laravel</span><span>MySQL</span><span>jQuery</span><span>Bootstrap</span></div>
-            <div class="proj-links">
-              <a href="https://github.com/presham" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
-                GitHub
               </a>
             </div>
           </div>
