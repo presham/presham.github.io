@@ -259,6 +259,22 @@
     .stat .num { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--accent); }
     .stat .lbl { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.03em; text-transform: uppercase; }
 
+    /* Hero portrait */
+    .portrait {
+      position: relative; width: 100%; aspect-ratio: 4 / 5; border-radius: 14px;
+      overflow: hidden; border: 1px solid var(--border); background: var(--bg-2);
+    }
+    .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; }
+    .portrait-ph {
+      position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 14px; text-align: center;
+      color: var(--text-dim); font-size: 0.86rem; padding: 20px;
+      background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 26px 26px;
+    }
+    .portrait-ph svg { width: 48px; height: 48px; color: var(--accent); opacity: 0.75; }
+    .portrait-ph b { color: var(--accent); font-family: var(--font-mono); }
+
     /* ============ About ============ */
     .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: start; }
     .about-text p { color: var(--text-muted); margin-bottom: 18px; font-size: 1.05rem; }
@@ -359,6 +375,25 @@
     .proj-links a:hover { text-decoration: underline; }
     .proj-links svg { width: 16px; height: 16px; }
 
+    /* ============ Education ============ */
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .edu-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 26px; transition: transform 0.25s var(--ease), border-color 0.25s, box-shadow 0.25s;
+    }
+    .edu-card:hover { transform: translateY(-6px); border-color: var(--border-strong); box-shadow: var(--shadow); }
+    .edu-icon {
+      width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center;
+      background: var(--accent-soft); color: var(--accent); margin-bottom: 16px;
+    }
+    .edu-icon svg { width: 24px; height: 24px; }
+    .edu-when { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent); margin-bottom: 8px; }
+    .edu-card h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; margin-bottom: 6px; line-height: 1.25; }
+    .edu-school { color: var(--text-muted); font-weight: 500; font-size: 0.95rem; }
+    .edu-note { color: var(--text-dim); font-size: 0.88rem; margin-top: 8px; }
+    .certs { margin-top: 40px; }
+    .certs h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 16px; }
+
     /* ============ Contact ============ */
     .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; }
     .contact-info h2.section-title { margin-bottom: 18px; }
@@ -376,26 +411,6 @@
     .contact-method .ci svg { width: 20px; height: 20px; }
     .contact-method .t { font-size: 0.76rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.04em; }
     .contact-method .v { font-weight: 600; }
-
-    form.contact-form {
-      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 32px; box-shadow: var(--shadow);
-    }
-    .field { margin-bottom: 20px; }
-    .field label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; color: var(--text); }
-    .field input, .field textarea {
-      width: 100%; padding: 13px 15px; border-radius: 11px; font-family: var(--font-body);
-      font-size: 0.95rem; background: var(--bg-2); border: 1px solid var(--border); color: var(--text);
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .field input:focus, .field textarea:focus {
-      outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft);
-    }
-    .field textarea { resize: vertical; min-height: 130px; }
-    .field input::placeholder, .field textarea::placeholder { color: var(--text-dim); }
-    .form-note { font-size: 0.82rem; color: var(--text-dim); margin-top: 4px; }
-    .form-status { font-size: 0.9rem; margin-top: 14px; min-height: 1.2em; }
-    .form-status.ok { color: #28c840; }
 
     /* ============ Footer ============ */
     footer {
@@ -453,6 +468,7 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -509,14 +525,15 @@
 
         <div class="hero-right">
           <div class="hero-card reveal">
-            <div class="card-dots"><span></span><span></span><span></span></div>
-            <div class="code-line"><span class="k">const</span> <span class="f">resham</span> = {
-  <span class="p">role</span>: <span class="s">"Software Engineer"</span>,
-  <span class="p">focus</span>: <span class="s">"Cybersecurity"</span>,
-  <span class="p">stack</span>: [<span class="s">"Python"</span>, <span class="s">"PHP"</span>, <span class="s">"TS"</span>],
-  <span class="p">based</span>: <span class="s">"Texas, USA 🇺🇸"</span>,
-  <span class="p">open</span>: <span class="k">true</span> <span class="p">// summer '26 intern</span>
-};</div>
+            <div class="portrait">
+              <!-- Add your photo: drop a file named portrait.jpg next to index.html (or change the src below) -->
+              <div class="portrait-ph">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9"/><circle cx="9" cy="9" r="2"/><path d="m3 17 4-4a2 2 0 0 1 2.8 0l3.2 3.2"/><path d="M19 22v-6M22 19h-6"/></svg>
+                <span>Add your portrait<br><b>portrait.jpg</b></span>
+              </div>
+              <img src="portrait.jpg" alt="Resham Pokhrel" id="portraitImg"
+                   onerror="this.style.display='none';" />
+            </div>
             <div class="stats">
               <div class="stat"><div class="num">4+</div><div class="lbl">Yrs Exp</div></div>
               <div class="stat"><div class="num">45k+</div><div class="lbl">Pkg DLs</div></div>
@@ -701,6 +718,58 @@
     </div>
   </section>
 
+  <!-- ================= EDUCATION ================= -->
+  <section id="education">
+    <div class="wrap">
+      <div class="reveal" style="margin-bottom:44px;">
+        <div class="eyebrow">Academics</div>
+        <h2 class="section-title">Education</h2>
+        <p class="lead">My formal training in computer science and cybersecurity.</p>
+      </div>
+
+      <div class="edu-grid">
+        <div class="edu-card reveal">
+          <div class="edu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+          <div class="edu-when">Aug 2025 — May 2027 (Expected)</div>
+          <h3>Master of Science in Cybersecurity</h3>
+          <div class="edu-school">Stephen F. Austin State University · Nacogdoches, TX</div>
+          <p class="edu-note">Graduate Research Assistant at the Academic Assistance and Resource Center.</p>
+        </div>
+
+        <div class="edu-card reveal">
+          <div class="edu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+          <div class="edu-when">2013 — 2017</div>
+          <h3>B.Sc. in Computer Science &amp; Information Technology</h3>
+          <div class="edu-school">Tribhuvan University · Kathmandu, Nepal</div>
+          <p class="edu-note">Capstone: Digital DOTS — 3rd place, national IT exhibition (CAN Info-Tech 2018).</p>
+        </div>
+
+        <div class="edu-card reveal">
+          <div class="edu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <div class="edu-when">Sept 2025 — Nov 2025</div>
+          <h3>Intermediate Cybersecurity</h3>
+          <div class="edu-school">CodePath</div>
+          <p class="edu-note">Hands-on program covering practical offensive and defensive security fundamentals.</p>
+        </div>
+      </div>
+
+      <div class="certs reveal">
+        <h3>Certifications &amp; Bootcamps</h3>
+        <div class="tags">
+          <span class="tag">Google Cybersecurity Professional</span>
+          <span class="tag">CodePath Intermediate Cybersecurity</span>
+          <span class="tag">Microsoft Azure Data Fundamentals</span>
+          <span class="tag">Microsoft Azure AI Fundamentals</span>
+          <span class="tag">Microsoft Azure Fundamentals</span>
+          <span class="tag">Data Science Bootcamp</span>
+          <span class="tag">Data Engineering Bootcamp</span>
+          <span class="tag">Web Development with Go (Golang)</span>
+          <span class="tag">Introduction to Data Science</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= PROJECTS ================= -->
   <section id="projects">
     <div class="wrap">
@@ -793,13 +862,12 @@
   <!-- ================= CONTACT ================= -->
   <section id="contact">
     <div class="wrap">
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <div class="eyebrow">Get in touch</div>
+      <div class="contact-info reveal" style="max-width:640px; margin:0 auto; text-align:center;">
+          <div class="eyebrow" style="justify-content:center;">Get in touch</div>
           <h2 class="section-title">Let's build something secure together.</h2>
-          <p class="lead">Have a role, a project, or just want to say hi? I'm currently open to Summer 2026 internships and always happy to connect.</p>
+          <p class="lead" style="margin:0 auto;">Have a role, a project, or just want to say hi? I'm currently open to Summer 2026 internships and always happy to connect. The quickest way to reach me is email or LinkedIn.</p>
 
-          <div class="contact-methods">
+          <div class="contact-methods" style="max-width:460px; margin:32px auto 0; text-align:left;">
             <a class="contact-method" href="mailto:reshampokhrel57@gmail.com">
               <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
               <div><div class="t">Email</div><div class="v">reshampokhrel57@gmail.com</div></div>
@@ -813,28 +881,6 @@
               <div><div class="t">GitHub</div><div class="v">@presham</div></div>
             </a>
           </div>
-        </div>
-
-        <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/your_form_id" method="POST">
-          <div class="field">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required />
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required />
-          </div>
-          <div class="field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Tell me about the opportunity or just say hello…" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
-            Send message
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          </button>
-          <p class="form-note">Submitting opens your email app addressed to me — no server needed.</p>
-          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-        </form>
       </div>
     </div>
   </section>
@@ -919,25 +965,6 @@
       } else {
         reveals.forEach(function (el) { el.classList.add('in'); });
       }
-
-      /* ---- Contact form: mailto fallback (works on static hosting) ---- */
-      var form = document.getElementById('contactForm');
-      var status = document.getElementById('formStatus');
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var name = document.getElementById('name').value.trim();
-        var email = document.getElementById('email').value.trim();
-        var message = document.getElementById('message').value.trim();
-        if (!name || !email || !message) { status.textContent = 'Please fill in all fields.'; return; }
-
-        var subject = encodeURIComponent('Portfolio contact from ' + name);
-        var body = encodeURIComponent(message + '\n\n— ' + name + '\n' + email);
-        window.location.href = 'mailto:reshampokhrel57@gmail.com?subject=' + subject + '&body=' + body;
-
-        status.className = 'form-status ok';
-        status.textContent = 'Opening your email app… thanks for reaching out!';
-        form.reset();
-      });
 
       /* ---- Footer year ---- */
       document.getElementById('year').textContent = new Date().getFullYear();
